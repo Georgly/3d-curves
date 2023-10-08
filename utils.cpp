@@ -1,8 +1,8 @@
 #include <iostream>
-#include <vector>
-#include <memory>
 #include <typeinfo>
-#include "curve.hpp"
+
+#include "utils.hpp"
+#include "curve_generator.hpp"
 
 using namespace std;
 
@@ -11,18 +11,19 @@ ostream& operator<<(std::ostream& out, const Vector3d& v)
     return out << "{" << v.e[0] << "; " << v.e[1] << "; " << v.e[2] << "}";
 }
 
-void populateVectorWithCurves(vector<shared_ptr<Curve>> & curves)
+void PopulateVectorWithCurves(vector<shared_ptr<Curve>> & curves, size_t n)
 {
-    curves.push_back(make_shared<Circle>(1.));
-    curves.push_back(make_shared<Ellipse>(1., 0.5));
-    curves.push_back(make_shared<Circle>(0.5));
-    curves.push_back(make_shared<Helix>(1., 1.));
+    CurveGenerator g;
+    for (size_t i = 0; i != n; i++)
+    {
+        curves.push_back(g.GenerateCurve());
+    }
 }
 
 /*
 *   Populate a second vector with only circles from the first vector
 */
-void populateVectorWithCircles(const vector<shared_ptr<Curve>> & curves, 
+void PopulateVectorWithCircles(const vector<shared_ptr<Curve>> & curves, 
                                vector<shared_ptr<Circle>> & circles)
 {
     for (auto curve : curves)
@@ -32,7 +33,7 @@ void populateVectorWithCircles(const vector<shared_ptr<Curve>> & curves,
     }
 }
 
-void printCurves(const vector<shared_ptr<Curve>> & curves, float param)
+void PrintCurves(const vector<shared_ptr<Curve>> & curves, float param)
 {
     cout << "Coordinates of points and derivatives of all curves in the container at t=" << param << endl;
     for (auto curve : curves)

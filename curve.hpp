@@ -44,29 +44,29 @@ private:
 class Ellipse : public Curve
 {
 public:
-    explicit Ellipse(float xRadius, float yRadius) 
-        : xRadius_(fabsf(xRadius)), yRadius_(fabsf(yRadius)) { }
+    explicit Ellipse(float x_radius, float y_radius) 
+        : x_radius_(fabsf(x_radius)), y_radius_(fabsf(y_radius)) { }
 
     Point3d GetPointAt(float p) const 
     {
-        return Point3d(xRadius_*cosf(p),yRadius_*sinf(p),0);
+        return Point3d(x_radius_*cosf(p),y_radius_*sinf(p),0);
     }
     Vector3d GetDerivativeAt(float p) const 
     {
-        return Vector3d(xRadius_*sinf(p)*(-1),yRadius_*cosf(p),0);
+        return Vector3d(x_radius_*sinf(p)*(-1),y_radius_*cosf(p),0);
     }
     float GetYRadius() const 
     {
-        return yRadius_;
+        return y_radius_;
     }
     float GetXRadius() const 
     {
-        return xRadius_;
+        return x_radius_;
     }
 
 private:
-    float xRadius_;
-    float yRadius_;
+    float x_radius_;
+    float y_radius_;
 };
 
 class Helix : public Curve
