@@ -1,8 +1,8 @@
 #include <iostream>
 #include <typeinfo>
 
-#include "utils.hpp"
-#include "curve_generator.hpp"
+#include "utils.h"
+#include "curve_generator.h"
 
 using namespace std;
 

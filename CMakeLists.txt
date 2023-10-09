@@ -3,7 +3,8 @@ project(3d-curves)
 
 add_executable(${PROJECT_NAME} 
     curve.hpp
-    utils.hpp
-    curve_generator.hpp
+    utils.h
+    curve_generator.h
     main.cpp
-    utils.cpp)
+    utils.cpp
+    curve_generator.cpp)

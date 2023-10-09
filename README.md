@@ -1,4 +1,5 @@
 # 3D Curves
+## About The Project
 
 Console program in C++ that implement support of 3D curves hierarchy.
 1. Support a few types of 3D geometric curves – circles, ellipses and 3D helixes. (Simplified
@@ -12,9 +13,6 @@ The second vector shares circles of the first one, e.g. via pointers.
 5. Sort the second container in the ascending order of circles’ radii. That is, the first element has the
 smallest radius, the last - the greatest.
 6. Compute the total sum of radii of all curves in the second container.
-(*) Additional optional requirements:
-7. Split implementation into a library of curves (.dll or .so) and executable which uses API of this
-library.
 
 Curve definitions:
 - All curves are parametrically defined, i.e. a point is calculated using some C(t) formula.
@@ -23,3 +21,27 @@ Curve definitions:
 - Helix is spatial and is defined by its radius and step. It takes 2 * PI in
 parametric space to make a round, i.e. any point on helix satisfies the condition C(t + 2*PI) = C(t) +
 {0, 0, step}.
+
+## How To Use
+
+To clone and run this application, you'll need Git and CMake installed on your computer. From your command line:
+
+```bash
+# Clone this repository
+$ git clone https://gitlab.com/kiber_gorg/3d-curves.git
+
+# Go into the repository
+$ cd 3d-curves
+
+# Create build directory 
+$ mkdir build && cd build
+
+# Configure
+$ cmake ..
+
+# Build
+$ cmake --build .
+
+# Run the app
+$ ./3d-curves
+```

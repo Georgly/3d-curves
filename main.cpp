@@ -3,7 +3,7 @@
 #include <algorithm>
 
 #include "curve.hpp"
-#include "utils.hpp"
+#include "utils.h"
 
 using namespace std;
 
